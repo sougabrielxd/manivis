@@ -613,33 +613,65 @@ footer {
   .nav-drawer {
     display: block;
   }
+  /* Hero — apenas mobile: centralizada, equilibrada na primeira dobra */
   #hero {
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    padding: 120px clamp(1rem, 4vw, 1.5rem) max(3rem, env(safe-area-inset-bottom, 0px));
-    text-align: left;
-    min-height: 100dvh;
+    text-align: center;
+    padding-top: max(3.5rem, calc(1.25rem + env(safe-area-inset-top, 0px)));
+    padding-left: clamp(1.25rem, 5vw, 1.75rem);
+    padding-right: clamp(1.25rem, 5vw, 1.75rem);
+    padding-bottom: max(2.25rem, env(safe-area-inset-bottom, 0px));
     min-height: 100vh;
+    min-height: 100dvh;
+    min-height: 100svh;
+  }
+  #hero::before {
+    background: radial-gradient(
+      ellipse at 50% 38%,
+      rgba(61, 212, 74, 0.2) 0%,
+      transparent 58%
+    );
   }
   .hero-content {
-    max-width: 100%;
+    max-width: min(22.5rem, 100%);
+    width: 100%;
     min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    text-align: center;
   }
   .hero-eyebrow,
   .hero-title,
   .hero-sub {
     padding-left: 0;
+    text-align: center;
+    align-self: center;
+  }
+  .hero-eyebrow {
+    margin-bottom: 1rem;
+    letter-spacing: 0.22em;
+  }
+  .hero-title {
+    font-size: clamp(2.45rem, 10.5vw, 3.45rem);
+    line-height: 0.98;
+    margin-bottom: 1.35rem;
+    width: 100%;
+  }
+  .hero-sub {
+    margin-bottom: 2.35rem;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    max-width: 19.5rem;
+    margin-left: auto;
+    margin-right: auto;
   }
   .btn-primary {
     margin-left: 0;
   }
-  .hero-title {
-    font-size: clamp(2.25rem, 10vw, 3.25rem);
-    margin-bottom: 1.25rem;
-  }
-  .hero-sub {
-    margin-bottom: 2rem;
-    font-size: 1rem;
+  #hero .btn-primary {
+    align-self: center;
   }
   #manipueira { flex-direction: column; padding: 80px 24px; gap: 40px; }
   #problemas, #produtos, #oferecemos, #time { padding: 80px 24px; }
