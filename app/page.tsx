@@ -4,8 +4,7 @@ import { RevealOnScroll } from './components/RevealOnScroll';
 import { SiteNav } from './components/SiteNav';
 import TimeCarousel from './components/TimeCarousel';
 
-const MANIPUEIRA_IMG =
-  'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=900&q=80';
+const MANIPUEIRA_IMG = '/IMAGEM DA MANIPUEIRA.jpg.jpeg';
 
 export default function Home() {
   return (
@@ -16,6 +15,14 @@ export default function Home() {
 
       <section id="hero">
         <div className="hero-content">
+          <Image
+            src="/preto.png"
+            alt="Manivis"
+            width={52}
+            height={52}
+            className="hero-logo"
+            priority
+          />
           <p className="hero-eyebrow">MANIVIS</p>
           <h1 className="hero-title">Da raiz ao resultado: inovação sustentável.</h1>
           <p className="hero-sub">
@@ -160,7 +167,7 @@ export default function Home() {
             <div className="time-photo-wrap">
               <Image
                 className="time-photo"
-                src="/fota.jpg"
+                src="/fota.png"
                 alt="Gabriel Lucas"
                 width={120}
                 height={120}
@@ -169,7 +176,7 @@ export default function Home() {
             </div>
             <div className="time-body">
               <h3 className="time-name">Gabriel Lucas</h3>
-              <p className="time-role">Desenvolvimento</p>
+              <p className="time-role">Desenvolvedor</p>
               <div className="time-socials">
                 <a
                   href="https://www.linkedin.com/in/gabriellucasafb/"
@@ -213,7 +220,7 @@ export default function Home() {
             </div>
             <div className="time-body">
               <h3 className="time-name">Antonio Kawan</h3>
-              <p className="time-role">Desenvolvimento</p>
+              <p className="time-role">Desenvolvedor</p>
               <div className="time-socials">
                 <a
                   href="https://www.linkedin.com/in/antonio-kawan-freitas/"
@@ -469,7 +476,16 @@ export default function Home() {
 
       <footer>
         <div className="footer-brand">
-          <div className="footer-logo">MANIVIS</div>
+          <div className="footer-brand-name">
+            <Image
+              src="/Branca.png"
+              alt="Manivis"
+              width={36}
+              height={36}
+              className="footer-logo-img"
+            />
+            <div className="footer-logo">MANIVIS</div>
+          </div>
           <div className="footer-tagline">
             © 2024 MANIVIS · Da raiz ao resultado: inovação sustentável.
           </div>

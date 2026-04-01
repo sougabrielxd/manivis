@@ -45,11 +45,16 @@ body {
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
-  letter-spacing: 4px;
-  color: var(--white);
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
+}
+.nav-logo-img {
+  width: 70px;
+  height: 45px;
+  object-fit: contain;
+  display: block;
 }
 .nav-links {
   display: flex;
@@ -222,6 +227,13 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+.hero-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 10px;
 }
 .hero-eyebrow {
   padding-left: 0;
@@ -827,11 +839,23 @@ footer {
   color: var(--green-light);
   transform: translateY(-2px);
 }
+.footer-brand-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
 .footer-logo {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.3rem;
   letter-spacing: 4px;
-  color: var(--green-light);
+  color: var(--white);
 }
 .footer-credits {
   line-height: 1.6;

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 
 const NAV_LINKS = [
@@ -39,8 +40,15 @@ export function SiteNav() {
   return (
     <nav className="site-nav" aria-label="Principal">
       <div className="nav-bar">
-        <a href="#hero" className="nav-logo" onClick={close}>
-          Manivis
+        <a href="#hero" className="nav-logo" onClick={close} aria-label="Manivis — página inicial">
+          <Image
+            src="/Branca.png"
+            alt="Manivis"
+            width={38}
+            height={38}
+            className="nav-logo-img"
+            priority
+          />
         </a>
         <ul className="nav-links">
           {NAV_LINKS.map(({ href, label }) => (
