@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Inter:wght@400;500;600&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -405,7 +405,12 @@ body {
   outline: 2px solid var(--green-light);
   outline-offset: 3px;
 }
-.prob-card-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+.prob-card-icon {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  color: var(--green-light);
+}
 .prob-card-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.2rem;
@@ -472,17 +477,17 @@ body {
 }
 .prob-modal-header-main {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   min-width: 0;
   flex: 1;
   padding-right: 4px;
 }
 .prob-modal-header-icon {
-  font-size: 1.75rem;
-  line-height: 1;
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
-  margin-top: 2px;
+  color: var(--green-dark);
   opacity: 0.92;
 }
 .prob-modal-title {
@@ -674,8 +679,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
   background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.08));
+  color: var(--green-light);
 }
 .produto-body { padding: 20px 22px 24px; }
 .produto-nome {
@@ -724,13 +729,60 @@ body {
   background: rgba(61,212,74,0.1);
   border: 1px solid rgba(61,212,74,0.2);
   border-radius: 14px;
-  padding: 28px 22px;
+  padding: 28px 22px 24px;
   text-align: center;
-  transition: background 0.2s;
+  transition: background 0.2s, border-color 0.2s;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.oferta-item:hover { background: rgba(61,212,74,0.18); }
-.oferta-icon { font-size: 2.2rem; margin-bottom: 12px; }
-.oferta-label { font-size: 0.9rem; color: rgba(255,255,255,0.8); font-weight: 400; line-height: 1.5; }
+/* cards clicáveis — reset de <button> + interação */
+.oferta-item--clickable {
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  width: 100%;
+}
+.oferta-item--clickable:hover {
+  background: rgba(61,212,74,0.18);
+  border-color: rgba(61,212,74,0.38);
+}
+.oferta-item--clickable:focus-visible {
+  outline: 2px solid var(--green-light);
+  outline-offset: 3px;
+}
+/* sem hover nos cards simples — evita falsa affordance */
+.oferta-item:not(.oferta-item--clickable):hover {
+  background: rgba(61,212,74,0.1);
+}
+.oferta-icon {
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: center;
+  color: var(--green-light);
+}
+.oferta-label {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  font-weight: 400;
+  line-height: 1.5;
+  flex: 1;
+}
+/* affordance discreta — só nos cards clicáveis */
+.oferta-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.15s;
+}
+.oferta-item--clickable:hover .oferta-hint {
+  color: rgba(255, 255, 255, 0.65);
+}
 
 /* ── TIME ── */
 #time {
@@ -750,29 +802,26 @@ body {
   margin-right: auto;
 }
 .time-intro { margin-top: -6px; }
+/* wrapper — clipa o track e aplica o fade nas bordas */
 .time-grid {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+/* track animado — largura natural (2 cópias), move -50% = 1 cópia */
+.time-track {
   display: flex;
   gap: 18px;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 0 var(--page-pad-x);
-  margin-left: calc(-1 * var(--page-pad-x));
-  margin-right: calc(-1 * var(--page-pad-x));
-  scroll-padding: var(--page-pad-x);
-  -webkit-overflow-scrolling: touch;
-  /* Ocultar scrollbar */
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  /* Efeito de fade nas bordas */
-  mask-image: linear-gradient(to right, transparent 0%, black var(--page-pad-x), black calc(100% - var(--page-pad-x)), transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black var(--page-pad-x), black calc(100% - var(--page-pad-x)), transparent 100%);
+  width: max-content;
+  animation: carouselScroll 38s linear infinite;
+  padding: 4px 0 12px;
 }
-
-.time-grid::-webkit-scrollbar {
-  display: none;
+.time-track:hover {
+  animation-play-state: paused;
+}
+@keyframes carouselScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 .time-card {
   background: rgba(255,255,255,0.08);
@@ -818,17 +867,19 @@ body {
 }
 .time-body { padding: 8px 22px 28px; }
 .time-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.25rem;
-  letter-spacing: 2px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--white);
-  margin-bottom: 8px;
-  text-transform: uppercase;
+  margin-bottom: 4px;
+  line-height: 1.3;
 }
 .time-role {
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.65);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
   font-weight: 400;
+  line-height: 1.45;
   margin-bottom: 18px;
 }
 .time-socials {
@@ -1039,7 +1090,6 @@ footer {
     border-radius: 16px;
   }
   .produto-img-placeholder {
-    font-size: 2.35rem;
     aspect-ratio: 1;
   }
   .produto-body {

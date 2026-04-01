@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { Bug, Flame, Leaf, Recycle } from 'lucide-react';
+import { OfertaCards } from './components/OfertaCards';
 import { ProblemCards } from './components/ProblemCards';
 import { RevealOnScroll } from './components/RevealOnScroll';
 import { ScrollToTop } from './components/ScrollToTop';
@@ -80,7 +82,7 @@ export default function Home() {
         </div>
         <div className="produtos-grid">
           <div className="produto-card reveal">
-            <div className="produto-img-placeholder">🌱</div>
+            <div className="produto-img-placeholder"><Leaf size={70} strokeWidth={1.4} aria-hidden /></div>
             <div className="produto-body">
               <div className="produto-nome">Biofertilizante</div>
               <p className="produto-desc">
@@ -90,7 +92,7 @@ export default function Home() {
             </div>
           </div>
           <div className="produto-card reveal">
-            <div className="produto-img-placeholder">🦟</div>
+            <div className="produto-img-placeholder"><Bug size={70} strokeWidth={1.4} aria-hidden /></div>
             <div className="produto-body">
               <div className="produto-nome">Bioinseticida</div>
               <p className="produto-desc">
@@ -100,7 +102,7 @@ export default function Home() {
             </div>
           </div>
           <div className="produto-card reveal">
-            <div className="produto-img-placeholder">🔥</div>
+            <div className="produto-img-placeholder"><Flame size={70} strokeWidth={1.4} aria-hidden /></div>
             <div className="produto-body">
               <div className="produto-nome">Biogás</div>
               <p className="produto-desc">
@@ -110,7 +112,7 @@ export default function Home() {
             </div>
           </div>
           <div className="produto-card reveal">
-            <div className="produto-img-placeholder">♻️</div>
+            <div className="produto-img-placeholder"><Recycle size={70} strokeWidth={1.4} aria-hidden /></div>
             <div className="produto-body">
               <div className="produto-nome">Gestão de resíduos (manipueira)</div>
               <p className="produto-desc">
@@ -129,30 +131,7 @@ export default function Home() {
             promovendo inovação sustentável e geração de valor para a cadeia produtiva da mandioca.
           </p>
         </div>
-        <div className="oferecemos-grid">
-          <div className="oferta-item reveal">
-            <div className="oferta-icon">♻️</div>
-            <div className="oferta-label">Gestão, tratamento e reaproveitamento da manipueira</div>
-          </div>
-          <div className="oferta-item reveal">
-            <div className="oferta-icon">⚡</div>
-            <div className="oferta-label">Geração de energia por meio de biogás</div>
-          </div>
-          <div className="oferta-item reveal">
-            <div className="oferta-icon">🌱</div>
-            <div className="oferta-label">Biofertilizantes</div>
-          </div>
-          <div className="oferta-item reveal">
-            <div className="oferta-icon">🦟</div>
-            <div className="oferta-label">Bioinseticidas</div>
-          </div>
-          <div className="oferta-item reveal">
-            <div className="oferta-icon">📋</div>
-            <div className="oferta-label">
-              Consultoria e acompanhamento técnico para melhor desempenho da lavoura de mandioca
-            </div>
-          </div>
-        </div>
+        <OfertaCards />
       </section>
 
       <section id="time">
@@ -178,7 +157,7 @@ export default function Home() {
             </div>
             <div className="time-body">
               <h3 className="time-name">Gabriel Lucas</h3>
-              <p className="time-role">Desenvolvedor</p>
+              <p className="time-role">Desenvolvedor <br/> Full Stack</p>
               <div className="time-socials">
                 <a
                   href="https://www.linkedin.com/in/gabriellucasafb/"
@@ -222,7 +201,7 @@ export default function Home() {
             </div>
             <div className="time-body">
               <h3 className="time-name">Antonio Kawan</h3>
-              <p className="time-role">Desenvolvedor</p>
+              <p className="time-role">Desenvolvedor <br/> Full Stack</p>
               <div className="time-socials">
                 <a
                   href="https://www.linkedin.com/in/antonio-kawan-freitas/"
@@ -266,7 +245,7 @@ export default function Home() {
             </div>
             <div className="time-body">
               <h3 className="time-name">Marcos Antunes</h3>
-              <p className="time-role">Engenheiro</p>
+              <p className="time-role">Engenheiro <br/> Agrônomo</p>
               <div className="time-socials">
                 <a
                   href="https://www.linkedin.com/in/marcos-antunes-b1bb693a7/"
@@ -310,7 +289,7 @@ export default function Home() {
             </div>
             <div className="time-body">
               <h3 className="time-name">Ingryd Dias</h3>
-              <p className="time-role">Engenheira</p>
+              <p className="time-role">Engenheiro <br/> Agrônomo</p>
               <div className="time-socials">
                 <a
                   href="https://www.linkedin.com/in/ingryd-dias-b769592a4/"
@@ -354,7 +333,7 @@ export default function Home() {
             </div>
             <div className="time-body">
               <h3 className="time-name">Clara Vitória</h3>
-              <p className="time-role">Engenheira</p>
+              <p className="time-role">Engenheiro <br/> Agrônomo</p>
               <div className="time-socials">
                 <a
                   href="https://www.linkedin.com/in/clara-vitória5413243ba?utm_source=share_via&utm_content=profile&utm_medium=member_android"
@@ -397,8 +376,8 @@ export default function Home() {
               />
             </div>
             <div className="time-body">
-              <h3 className="time-name">Ézio Arrais</h3>
-              <p className="time-role">Engenheiro</p>
+              <h3 className="time-name">Ezio Arrais</h3>
+              <p className="time-role">Engenheiro <br/> Agrônomo</p>
               <div className="time-socials">
                 {/* <a
                   href="https://www.linkedin.com/in/clara-vitória5413243ba?utm_source=share_via&utm_content=profile&utm_medium=member_android"
@@ -415,7 +394,7 @@ export default function Home() {
                 <a
                   href="https://www.instagram.com/ezio_arrais"
                   className="social-link"
-                  aria-label="Instagram de Ézio Arrais"
+                  aria-label="Instagram de Ezio Arrais"
                   title="Instagram"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -443,12 +422,12 @@ export default function Home() {
             </div>
             <div className="time-body">
               <h3 className="time-name">Edlano Pereira</h3>
-              <p className="time-role">Financiador</p>
+              <p className="time-role">Engenheiro <br/> Agrônomo</p>
               <div className="time-socials">
                 {/* <a
-                  href="https://www.linkedin.com/in/clara-vitória5413243ba?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  href=""
                   className="social-link"
-                  aria-label="LinkedIn de Clara Vitória"
+                  aria-label="LinkedIn de Edlano Pereira"
                   title="LinkedIn"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -458,9 +437,9 @@ export default function Home() {
                   </svg>
                 </a> 
                 <a
-                  href="https://www.instagram.com/ezio_arrais"
+                  href=""
                   className="social-link"
-                  aria-label="Instagram de Ézio Arrais"
+                  aria-label="Instagram de Edlano Pereira"
                   title="Instagram"
                   target="_blank"
                   rel="noopener noreferrer"

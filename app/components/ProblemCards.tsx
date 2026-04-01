@@ -1,7 +1,15 @@
 'use client';
 
+import { Droplets, HeartPulse, Layers, Wind } from 'lucide-react';
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
-import { PROBLEM_MODALS } from '../data/problemModals';
+import { PROBLEM_MODALS, type ProblemIconKey } from '../data/problemModals';
+
+const PROBLEM_ICONS: Record<ProblemIconKey, React.ReactNode> = {
+  water:  <Droplets   size={36} strokeWidth={1.5} aria-hidden />,
+  soil:   <Layers     size={36} strokeWidth={1.5} aria-hidden />,
+  air:    <Wind       size={36} strokeWidth={1.5} aria-hidden />,
+  health: <HeartPulse size={36} strokeWidth={1.5} aria-hidden />,
+};
 
 export function ProblemCards() {
   const [openId, setOpenId] = useState<string | null>(null);
@@ -54,8 +62,8 @@ export function ProblemCards() {
             aria-expanded={openId === p.id}
             aria-controls={`prob-dialog-${p.id}`}
           >
-            <span className="prob-card-icon" aria-hidden>
-              {p.icon}
+            <span className="prob-card-icon">
+              {PROBLEM_ICONS[p.icon]}
             </span>
             <span className="prob-card-title">{p.title}</span>
             <p className="prob-card-summary">{p.summary}</p>
@@ -81,8 +89,8 @@ export function ProblemCards() {
           >
             <header className="prob-modal-header">
               <div className="prob-modal-header-main">
-                <span className="prob-modal-header-icon" aria-hidden>
-                  {active.icon}
+                <span className="prob-modal-header-icon">
+                  {PROBLEM_ICONS[active.icon]}
                 </span>
                 <h2 id={titleId} className="prob-modal-title">
                   {active.title}

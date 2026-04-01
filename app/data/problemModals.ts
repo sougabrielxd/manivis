@@ -8,9 +8,11 @@ export type ProblemModalSection = {
   items: string[];
 };
 
+export type ProblemIconKey = 'water' | 'soil' | 'air' | 'health';
+
 export type ProblemModalContent = {
   id: string;
-  icon: string;
+  icon: ProblemIconKey;
   title: string;
   summary: string;
   /** Frase de entrada (contexto), sem substituir o detalhe técnico */
@@ -21,7 +23,7 @@ export type ProblemModalContent = {
 export const PROBLEM_MODALS: ProblemModalContent[] = [
   {
     id: 'agua',
-    icon: '💧',
+    icon: 'water',
     title: 'Contaminação da água',
     summary:
       'A manipueira descartada em rios e açudes pode comprometer a qualidade da água e afetar a vida aquática.',
@@ -47,7 +49,7 @@ export const PROBLEM_MODALS: ProblemModalContent[] = [
   },
   {
     id: 'solo',
-    icon: '🌱',
+    icon: 'soil',
     title: 'Contaminação do solo',
     summary:
       'Quando descartada sem controle, a manipueira pode degradar o solo e comprometer sua fertilidade natural.',
@@ -72,7 +74,7 @@ export const PROBLEM_MODALS: ProblemModalContent[] = [
   },
   {
     id: 'ar',
-    icon: '💨',
+    icon: 'air',
     title: 'Qualidade do ar',
     summary:
       'Durante a decomposição, a manipueira pode liberar gases tóxicos, provocar odores fortes e reduzir a qualidade do ar.',
@@ -99,7 +101,7 @@ export const PROBLEM_MODALS: ProblemModalContent[] = [
   },
   {
     id: 'saude',
-    icon: '🏥',
+    icon: 'health',
     title: 'Saúde pública',
     summary:
       'O descarte inadequado da manipueira também pode gerar riscos à saúde humana e animal.',
