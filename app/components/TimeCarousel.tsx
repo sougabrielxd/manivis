@@ -4,64 +4,65 @@ import { useEffect, useRef } from 'react';
 
 export default function TimeCarousel({ children }: { children: React.ReactNode }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isAnimatingRef = useRef(true);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
 
-    let animationId: number;
-    let isUserInteracting = false;
+    // Aguarda um pouco para o DOM estar completamente renderizado
+    const timer = setTimeout(() => {
+      let animationId: number;
 
-    const scroll = () => {
-      if (!isUserInteracting && scrollContainer) {
-        scrollContainer.scrollLeft += 1;
+      const autoScroll = () => {
+        if (scrollContainer && isAnimatingRef.current) {
+          scrollContainer.scrollLeft += 1;
 
-        // Reinicia o scroll quando chega ao final
-        if (
-          scrollContainer.scrollLeft >=
-          scrollContainer.scrollWidth - scrollContainer.clientWidth
-        ) {
-          scrollContainer.scrollLeft = 0;
+          // Quando chega perto do final, volta imperceptivelmente
+          const scrollWidth = scrollContainer.scrollWidth;
+          const clientWidth = scrollContainer.clientWidth;
+          const maxScroll = scrollWidth - clientWidth;
+          
+          // Volta quando chega a 2/3 (deixando 1/3 para rolar novamente)
+          const resetPoint = (maxScroll / 3) * 2;
+
+          if (scrollContainer.scrollLeft >= resetPoint) {
+            scrollContainer.scrollLeft = 0;
+          }
         }
-      }
-      animationId = requestAnimationFrame(scroll);
-    };
+        animationId = requestAnimationFrame(autoScroll);
+      };
 
-    // Event listeners para pausar quando o usuário interage
-    const handleMouseDown = () => {
-      isUserInteracting = true;
-    };
+      // Event listeners
+      const handleMouseEnter = () => {
+        isAnimatingRef.current = false;
+      };
 
-    const handleMouseUp = () => {
-      isUserInteracting = false;
-    };
+      const handleMouseLeave = () => {
+        isAnimatingRef.current = true;
+      };
 
-    const handleTouchStart = () => {
-      isUserInteracting = true;
-    };
+      scrollContainer.addEventListener('mouseenter', handleMouseEnter);
+      scrollContainer.addEventListener('mouseleave', handleMouseLeave);
 
-    const handleTouchEnd = () => {
-      isUserInteracting = false;
-    };
+      animationId = requestAnimationFrame(autoScroll);
 
-    scrollContainer.addEventListener('mousedown', handleMouseDown);
-    scrollContainer.addEventListener('mouseup', handleMouseUp);
-    scrollContainer.addEventListener('touchstart', handleTouchStart);
-    scrollContainer.addEventListener('touchend', handleTouchEnd);
-
-    animationId = requestAnimationFrame(scroll);
+      return () => {
+        cancelAnimationFrame(animationId);
+        scrollContainer.removeEventListener('mouseenter', handleMouseEnter);
+        scrollContainer.removeEventListener('mouseleave', handleMouseLeave);
+      };
+    }, 100);
 
     return () => {
-      cancelAnimationFrame(animationId);
-      scrollContainer.removeEventListener('mousedown', handleMouseDown);
-      scrollContainer.removeEventListener('mouseup', handleMouseUp);
-      scrollContainer.removeEventListener('touchstart', handleTouchStart);
-      scrollContainer.removeEventListener('touchend', handleTouchEnd);
+      clearTimeout(timer);
     };
   }, []);
 
   return (
     <div ref={scrollContainerRef} className="time-grid">
+      {children}
+      {children}
       {children}
     </div>
   );

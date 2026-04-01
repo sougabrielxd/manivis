@@ -699,7 +699,6 @@ body {
   margin-right: auto;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-behavior: smooth;
   padding: 0 var(--page-pad-x);
   margin-left: calc(-1 * var(--page-pad-x));
   margin-right: calc(-1 * var(--page-pad-x));
@@ -724,8 +723,7 @@ body {
   text-align: center;
   transition: transform 0.25s, box-shadow 0.25s;
   flex-shrink: 0;
-  width: 260px;
-  min-width: 260px;
+  min-width: 200px;
 }
 .time-card:hover {
   transform: translateY(-6px);
