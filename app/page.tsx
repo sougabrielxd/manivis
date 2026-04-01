@@ -20,7 +20,7 @@ export default function Home() {
       <section id="hero">
         <div className="hero-content">
           <Image
-            src="/preto.png"
+            src="/Branca.png"
             alt="Manivis"
             width={52}
             height={52}
@@ -368,8 +368,8 @@ export default function Home() {
             <div className="time-photo-wrap">
               <Image
                 className="time-photo"
-                src="/user.jpg"
-                alt="Clara Vitória"
+                src="/EZIO.jpeg"
+                alt="Ezio Arrais"
                 width={120}
                 height={120}
                 loading="lazy"

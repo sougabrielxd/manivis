@@ -249,7 +249,7 @@ body {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2.5rem, 5vw, 4.25rem);
   line-height: 1.02;
-  color: var(--text-dark);
+  color: var(--white);
   margin-bottom: 18px;
   max-width: 100%;
   overflow-wrap: break-word;
@@ -259,7 +259,7 @@ body {
 .hero-sub {
   padding-left: 0;
   font-size: 1.05rem;
-  color: rgba(0,0,0,0.6);
+  color: rgba(255,255,255,0.72);
   margin-bottom: 32px;
   font-weight: 300;
   text-align: center;
@@ -270,22 +270,33 @@ body {
 }
 .btn-primary {
   margin-left: 0;
-  display: inline-block;
-  padding: 14px 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 44px;
   background: var(--white);
-  color: var(--text-dark);
+  color: var(--green-dark);
   border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  border: 2px solid transparent;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
 }
 #hero .btn-primary {
   align-self: center;
   text-align: center;
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
+.btn-primary:hover {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+}
 
 /* ── MANIPUEIRA SECTION ── */
 #manipueira {
@@ -306,7 +317,7 @@ body {
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-  color: var(--text-dark);
+  color: var(--white);
   margin-bottom: 22px;
   letter-spacing: 2px;
 }
@@ -366,7 +377,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-.prob-header .section-title { color: var(--white); }
+.prob-header .section-title { /* herda var(--white) do base */ }
 .prob-section-sub {
   font-size: 0.98rem;
   line-height: 1.65;
@@ -650,7 +661,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-.produtos-header .section-title { color: var(--white); }
+.produtos-header .section-title { /* herda var(--white) do base */ }
 .produtos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -706,7 +717,7 @@ body {
   padding: var(--section-pad-y) var(--page-pad-x);
   color: var(--white);
 }
-#oferecemos .section-title { color: var(--white); margin-bottom: 20px; }
+#oferecemos .section-title { margin-bottom: 20px; /* herda var(--white) do base */ }
 #oferecemos .section-body {
   color: rgba(255,255,255,0.7);
   max-width: 38rem;
@@ -790,7 +801,7 @@ body {
   padding: var(--section-pad-y) var(--page-pad-x);
   color: var(--white);
 }
-#time .section-title { color: var(--white); }
+#time .section-title { /* herda var(--white) do base */ }
 #time .section-body {
   color: rgba(255,255,255,0.7);
   font-weight: 300;
