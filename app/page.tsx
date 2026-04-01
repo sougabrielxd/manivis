@@ -476,7 +476,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-brand">
-          <div className="footer-brand-name">
+          <a href="#hero" className="footer-brand-name" aria-label="Manivis — voltar ao início">
             <Image
               src="/Branca.png"
               alt="Manivis"
@@ -485,7 +485,7 @@ export default function Home() {
               className="footer-logo-img"
             />
             <div className="footer-logo">MANIVIS</div>
-          </div>
+          </a>
           <div className="footer-tagline">
             © 2024 MANIVIS · Da raiz ao resultado: inovação sustentável.
           </div>

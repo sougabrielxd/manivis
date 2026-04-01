@@ -879,10 +879,15 @@ footer {
   transform: translateY(-2px);
 }
 .footer-brand-name {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.18s;
 }
+.footer-brand-name:hover { opacity: 0.75; }
 .footer-logo-img {
   width: 36px;
   height: 36px;
