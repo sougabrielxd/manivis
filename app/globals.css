@@ -686,18 +686,25 @@ body {
 }
 .time-header {
   margin-bottom: 36px;
-  max-width: 38rem;
+  max-width: var(--content-max);
   margin-left: auto;
   margin-right: auto;
-  text-align: left;
 }
 .time-intro { margin-top: -6px; }
 .time-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 22px;
-  max-width: min(920px, 100%);
-  margin: 0 auto;
+  display: flex;
+  gap: 18px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 0 var(--page-pad-x);
+  margin-left: calc(-1 * var(--page-pad-x));
+  margin-right: calc(-1 * var(--page-pad-x));
+  scroll-padding: var(--page-pad-x);
+  -webkit-overflow-scrolling: touch;
 }
 .time-card {
   background: rgba(255,255,255,0.08);
@@ -706,6 +713,9 @@ body {
   overflow: hidden;
   text-align: center;
   transition: transform 0.25s, box-shadow 0.25s;
+  flex-shrink: 0;
+  width: 260px;
+  min-width: 260px;
 }
 .time-card:hover {
   transform: translateY(-6px);

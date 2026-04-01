@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { ProblemCards } from './components/ProblemCards';
 import { RevealOnScroll } from './components/RevealOnScroll';
 import { SiteNav } from './components/SiteNav';
+import TimeCarousel from './components/TimeCarousel';
 
 const MANIPUEIRA_IMG =
   'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=900&q=80';
